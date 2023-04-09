@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+    /* Font */
+    --font-family: 'Roboto', sans-serif;
+    --font-size: 16px;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    /* Colors - Obsidian */
+    --color-primary: #1E1E1E;
+    --color-primary-light: #4d9dd3;
+    --color-primary-dark: #100735;
+    --color-primary-text: #FFFFFF;
+    /* Spacing */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 1rem;
+    --spacing-4: 2rem;
+    /* Shadows */
+    --shadow-1: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+:is(
+    *,
+    *::after,
+    *::before
+) {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-primary-text);
+    background-color: var(--color-primary);
+    width: 100vw;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+/* not has an image */
+a:not(:has(img)):after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    position: relative;
+    top: 0.2rem;
+    background-color: var(--color-primary-light);
+    transition: width 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-primary-light);
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-3);
+}
+
+nav > ul {
+    display: grid;
+    grid-template-columns: 4fr repeat(3, 1fr);
+    width: 100%;
+    height: 80px;
+    align-items: center;
+}
+
+/* from child 2 to 4 */
+nav > ul > li:nth-child(n+2):nth-child(-n+4) {
+    text-align: end;
+    font-weight: var(--font-weight-medium);
+    font-size: 1.2rem;
+}
